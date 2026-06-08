@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Room | Zheng Zekai</title>
+    <meta name="description" content="Literary document reader.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .reader-meta {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        .reader-date {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .reader-category {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background-color: var(--accent-light);
+            padding: 0.15rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .reader-title {
+            font-family: var(--font-serif);
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .reader-content {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            line-height: 1.95;
+            letter-spacing: 0.01em;
+            max-width: 650px;
+            margin-top: 2rem;
+        }
+
+        .reader-content p {
+            margin-bottom: 1.5rem;
+            text-indent: 2em;
+            /* Classic indent */
+            text-align: justify;
+        }
+
+        .reader-content p.no-indent {
+            text-indent: 0;
+            text-align: left;
+        }
+
+        .reader-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: var(--transition-fast);
+        }
+
+        .reader-back:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" id="logo">Z</a>
+
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="writing.html" class="active-nav">Writing</a></li>
+                    <li>
+                        <a href="movie.html" id="nav-movie-link" aria-label="Today's Movie" class="nav-icon-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 7l-7 5 7 5V7z"></path>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="music.html" id="nav-music-link" aria-label="Today's Music" class="nav-icon-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18V5l12-2v13"></path>
+                                <circle cx="6" cy="18" r="3"></circle>
+                                <circle cx="18" cy="16" r="3"></circle>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="nav-meta">
+                <div class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main style="padding-top: 7.5rem; padding-bottom: 5rem;">
+        <div class="container">
+
+            <!-- Back Button to Directory -->
+            <a href="writing.html" class="reader-back">
+                &larr; Back to Directory
+            </a>
+
+            <!-- Dynamic Writing Reader Content Container -->
+            <article id="reader-article">
+                <!-- Title -->
+                <h1 class="reader-title" id="reader-title-el">Loading Document...</h1>
+
+                <!-- Meta -->
+                <div class="reader-meta" id="reader-meta-el" style="display: none;">
+                    <span class="reader-category" id="reader-cat-el">Category</span>
+                    <span class="reader-date" id="reader-date-el">Date</span>
+                </div>
+
+                <!-- Body Text -->
+                <div class="reader-content" id="reader-body-el">
+                    <!-- Populated dynamically via app.js -->
+                </div>
+            </article>
+
+            <!-- Bottom Back Button -->
+            <div style="margin-top: 5rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+                <a href="writing.html" class="mono"
+                    style="font-size: 0.85rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition-fast);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back to Directory
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-text">
+                &ldquo;Chasing internity in a short life.&rdquo;
+            </div>
+            <div class="footer-tech">
+                <span>Archived in Cream & Sepia Minimalist</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+
+</html>

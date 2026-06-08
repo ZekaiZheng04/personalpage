@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Movie | Interstellar</title>
+    <meta name="description" content="Movie recommendation page featuring Interstellar.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Movie detail custom layout */
+        .movie-card {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(45, 40, 36, 0.03);
+        }
+
+        .movie-poster-wrapper {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 20px rgba(45, 40, 36, 0.05);
+            background-color: #f0ebe2;
+            aspect-ratio: 2 / 3;
+        }
+
+        .movie-poster {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .movie-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .movie-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .movie-meta {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .movie-details-list {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .movie-detail-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            line-height: 1.6;
+        }
+
+        .movie-label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 0.2rem;
+        }
+
+        .movie-value {
+            color: var(--text-secondary);
+        }
+
+        .movie-synopsis {
+            font-family: var(--font-serif);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .imdb-btn {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--bg-secondary);
+            background-color: var(--text-primary);
+            border: 1px solid var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition-fast);
+            align-self: flex-start;
+        }
+
+        .imdb-btn:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(162, 59, 36, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .movie-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 1.5rem;
+            }
+
+            .movie-poster-wrapper {
+                max-width: 240px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" id="logo">Z</a>
+
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="writing.html">Writing</a></li>
+                    <li>
+                        <a href="movie.html" id="nav-movie-link" aria-label="Today's Movie"
+                            class="nav-icon-link active-nav">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 7l-7 5 7 5V7z"></path>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="music.html" id="nav-music-link" aria-label="Today's Music" class="nav-icon-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18V5l12-2v13"></path>
+                                <circle cx="6" cy="18" r="3"></circle>
+                                <circle cx="18" cy="16" r="3"></circle>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="nav-meta">
+                <div class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main style="padding-top: 7.5rem; padding-bottom: 5rem;">
+        <div class="container">
+
+            <!-- Page Title -->
+            <div style="margin-bottom: 3rem;">
+                <h1
+                    style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); letter-spacing: 0.05em;">
+                    /TODAY'S MOVIE</h1>
+            </div>
+
+            <!-- Movie Recommendation Card -->
+            <div class="movie-card">
+                <!-- Poster -->
+                <div class="movie-poster-wrapper">
+                    <img src="assets/movie_interstellar.jpg" alt="Interstellar Poster" class="movie-poster">
+                </div>
+
+                <!-- Info pane -->
+                <div class="movie-info">
+                    <div>
+                        <div class="movie-header">
+                            <h2 class="movie-title">Interstellar</h2>
+                            <div class="movie-meta">
+                                <span>2014</span>
+                            </div>
+                        </div>
+
+                        <p class="movie-synopsis">
+                            "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's
+                            survival in a dying Earth."
+                        </p>
+
+                        <div class="movie-details-list">
+                            <div class="movie-detail-row">
+                                <span class="movie-label">Director</span>
+                                <span class="movie-value">Christopher Nolan</span>
+                            </div>
+                            <div class="movie-detail-row">
+                                <span class="movie-label">Writers</span>
+                                <span class="movie-value">Jonathan Nolan<br>
+                                    Christopher Nolan</span>
+                            </div>
+                            <div class="movie-detail-row">
+                                <span class="movie-label">Cast</span>
+                                <span class="movie-value">Matthew McConaughey <br>
+                                    Anne Hathaway <br>
+                                    Jessica Chastain <br>
+                                    Michael Caine</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IMDb Link Button -->
+                    <a href="https://www.imdb.com/title/tt0816692/" target="_blank" rel="noopener noreferrer"
+                        class="imdb-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                        View on IMDb
+                    </a>
+                </div>
+            </div>
+
+            <!-- Back to Home Link -->
+            <div style="margin-top: 5rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+                <a href="index.html" class="mono"
+                    style="font-size: 0.85rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition-fast);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back to Home
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-text">
+                &ldquo;Chasing internity in a short life.&rdquo;
+            </div>
+            <div class="footer-tech">
+                <span>Archived in Cream & Sepia Minimalist</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+
+</html>

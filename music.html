@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Music | Talk - Kodaline</title>
+    <meta name="description" content="Music recommendation page featuring Talk by Kodaline.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Music detail custom layout */
+        .music-card {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(45, 40, 36, 0.03);
+        }
+
+        .album-cover-wrapper {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 20px rgba(45, 40, 36, 0.05);
+            background-color: #f0ebe2;
+            aspect-ratio: 1 / 1;
+        }
+
+        .album-cover-art {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .music-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .music-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .song-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .song-artist {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .music-meta {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .lyrics-excerpt {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            font-style: italic;
+            border-left: 2px solid var(--accent);
+            padding-left: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .spotify-btn {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--bg-secondary);
+            background-color: var(--text-primary);
+            border: 1px solid var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition-fast);
+            align-self: flex-start;
+        }
+
+        .spotify-btn:hover {
+            background-color: var(--accent-secondary);
+            border-color: var(--accent-secondary);
+            box-shadow: 0 4px 12px rgba(74, 93, 78, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .music-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 1.5rem;
+            }
+
+            .album-cover-wrapper {
+                max-width: 240px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" id="logo">Z</a>
+
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="writing.html">Writing</a></li>
+                    <li>
+                        <a href="movie.html" id="nav-movie-link" aria-label="Today's Movie" class="nav-icon-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 7l-7 5 7 5V7z"></path>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="music.html" id="nav-music-link" aria-label="Today's Music"
+                            class="nav-icon-link active-nav">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18V5l12-2v13"></path>
+                                <circle cx="6" cy="18" r="3"></circle>
+                                <circle cx="18" cy="16" r="3"></circle>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="nav-meta">
+                <div class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main style="padding-top: 7.5rem; padding-bottom: 5rem;">
+        <div class="container">
+
+            <!-- Page Title -->
+            <div style="margin-bottom: 3rem;">
+                <h1
+                    style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); letter-spacing: 0.05em;">
+                    /TODAY'S MUSIC</h1>
+            </div>
+
+            <!-- Music Recommendation Card -->
+            <div class="music-card">
+                <!-- Album Cover -->
+                <div class="album-cover-wrapper">
+                    <img src="assets/music_kodaline.png" alt="Album Cover Art" class="album-cover-art">
+                </div>
+
+                <!-- Info pane -->
+                <div class="music-info">
+                    <div>
+                        <div class="music-header">
+                            <h2 class="song-title">Talk</h2>
+                            <div class="song-artist">Kodaline</div>
+                            <div class="music-meta">
+                                <span>Album: In a Perfect World</span>
+                                <span>Year: 2013</span>
+                            </div>
+                        </div>
+
+                        <!-- Lyrics Excerpt -->
+                        <div class="lyrics-excerpt">
+                            "I can remember the good old days<br>
+                            When you and me used to hide away<br>
+                            Where the stars were shining or the sun was blinding our eyes"
+                        </div>
+                    </div>
+
+                    <!-- Spotify Link Button -->
+                    <a href="https://open.spotify.com/track/0C7NhO4ZksWSMFr3Fh5Clm" target="_blank"
+                        rel="noopener noreferrer" class="spotify-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                        Listen on Spotify
+                    </a>
+                </div>
+            </div>
+
+            <!-- Back to Home Link -->
+            <div style="margin-top: 5rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+                <a href="index.html" class="mono"
+                    style="font-size: 0.85rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition-fast);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back to Home
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-text">
+                &ldquo;Chasing internity in a short life.&rdquo;
+            </div>
+            <div class="footer-tech">
+                <span>Archived in Cream & Sepia Minimalist</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+
+</html>

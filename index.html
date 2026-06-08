@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poetry Archive</title>
+    <meta name="description" content="A minimalist literary-tech homepage featuring Dylan Thomas.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 
+      HEADER 
+      Left logo is name 'Z' (links to home page).
+      Right navigation links show subpages: Profile, Gallery, Writing, Movie, Music.
+    -->
+    <header id="header">
+        <div class="container nav-container">
+            <!-- Left logo (Home link) -->
+            <a href="index.html" class="logo" id="logo">Z</a>
+            
+            <!-- Right navigation pointing to subpages (including Movie and Music icons) -->
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="profile.html" id="nav-profile-link">Profile</a></li>
+                    <li><a href="gallery.html" id="nav-gallery-link">Gallery</a></li>
+                    <li><a href="writing.html" id="nav-writing-link">Writing</a></li>
+                    <li>
+                        <a href="movie.html" id="nav-movie-link" aria-label="Today's Movie" class="nav-icon-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="music.html" id="nav-music-link" aria-label="Today's Music" class="nav-icon-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Mobile menu toggle button -->
+            <div class="nav-meta">
+                <div class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 
+      MAIN CONTENT 
+      Homepage is refined to show ONLY the 3-line poem.
+      Poem title, author name, and supplementary modules are fully removed.
+    -->
+    <main>
+        <section class="hero" id="poem-view">
+            <div class="container">
+                <div class="poem-wrapper">
+                    <!-- The 3 lines of the poem will be typed dynamically here via app.js -->
+                    <div class="poem-content" id="poem-body-text"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+</html>

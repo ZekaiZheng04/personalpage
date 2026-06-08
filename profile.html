@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Zheng Zekai</title>
+    <meta name="description" content="Personal statement, education, and career experience of Zheng Zekai.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" id="logo">Z</a>
+
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="profile.html" class="active-nav">Profile</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="writing.html">Writing</a></li>
+                    <li>
+                        <a href="movie.html" id="nav-movie-link" aria-label="Today's Movie" class="nav-icon-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 7l-7 5 7 5V7z"></path>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="music.html" id="nav-music-link" aria-label="Today's Music" class="nav-icon-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18V5l12-2v13"></path>
+                                <circle cx="6" cy="18" r="3"></circle>
+                                <circle cx="18" cy="16" r="3"></circle>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="nav-meta">
+                <div class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT: Profile Details -->
+    <main style="padding-top: 7.5rem; padding-bottom: 5rem;">
+        <div class="container">
+
+            <!-- Page Title -->
+            <div style="margin-bottom: 3rem;">
+                <h1
+                    style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); letter-spacing: 0.05em;">
+                    /PROFILE</h1>
+            </div>
+
+            <!-- Self Statement Section -->
+            <section style="margin-bottom: 4rem;">
+                <h2
+                    style="font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+                    Self-Statement</h2>
+                <div style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.8;">
+                    <p style="margin-bottom: 1.25rem;">
+                        I am currently a PhD student in Physics at National University of Singapore (NUS) who is
+                        passionate in Biophysics and Astronomy. Beyond academia, I actively engage with the creative
+                        arts through film production, photography and music, while also fulfilling my love for traveling
+                        and sports like basketball, football, hiking and motorsports.
+                    </p>
+
+
+                    <!-- Curriculum Vitae File Link (added to self-statement section) -->
+                    <div style="margin-top: 1.75rem;">
+                        <a href="cv.pdf" target="_blank" class="mono"
+                            style="font-size: 0.825rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--border); padding: 0.6rem 1.25rem; border-radius: var(--radius-sm); background-color: var(--bg-secondary); box-shadow: 0 1px 3px rgba(45,40,36,0.03); transition: var(--transition-fast);">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                style="margin-top:-1px;">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            View Curriculum Vitae
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section: Re-formatted to match Work Experience timeline layout -->
+            <section style="margin-bottom: 4rem;">
+                <h2
+                    style="font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+                    Education</h2>
+                <div
+                    style="display: flex; flex-direction: column; gap: 2.5rem; position: relative; padding-left: 1.5rem; border-left: 2px solid var(--border);">
+
+                    <!-- Edu Item 1 -->
+                    <div style="position: relative;">
+                        <!-- Custom marker dot -->
+                        <div
+                            style="position: absolute; left: -1.5rem; top: 0.4rem; width: 8px; height: 8px; border-radius: 50%; background-color: var(--accent); transform: translateX(-5px);">
+                        </div>
+
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">Ph.D. in
+                                Physics <span style="color: var(--accent); font-weight: 500;">@ National University of
+                                    Singapore, Singapore</span></h3>
+                            <span class="mono"
+                                style="font-size: 0.85rem; color: var(--text-muted); background-color: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.6rem; border-radius: var(--radius-sm);">2024.08
+                                - Present</span>
+                        </div>
+                        <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7;">
+                            <!-- To be filled -->
+                        </p>
+                    </div>
+
+                    <!-- Edu Item 2 -->
+                    <div style="position: relative;">
+                        <div
+                            style="position: absolute; left: -1.5rem; top: 0.4rem; width: 8px; height: 8px; border-radius: 50%; background-color: var(--accent-secondary); transform: translateX(-5px);">
+                        </div>
+
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">B.Sc. in
+                                Physics <span style="color: var(--accent-secondary); font-weight: 500;">@
+                                    Zhejiang University, China</span></h3>
+                            <span class="mono"
+                                style="font-size: 0.85rem; color: var(--text-muted); background-color: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.6rem; border-radius: var(--radius-sm);">2020.09
+                                - 2024.06</span>
+                        </div>
+                        <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7;">
+                            <!-- To be filled -->
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- keep this template of the experience section, but no specific content for now -->
+            <!-- Experience Section -->
+            <section style="margin-bottom: 4rem;">
+                <h2
+                    style="font-family: var(--font-serif); font-size: 1.75rem; font-weight: 700; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+                    Work Experience</h2>
+                <div
+                    style="display: flex; flex-direction: column; gap: 2.5rem; position: relative; padding-left: 1.5rem; border-left: 2px solid var(--border);">
+
+                    <!-- Exp Item 1 -->
+                    <div style="position: relative;">
+                        <div
+                            style="position: absolute; left: -1.5rem; top: 0.4rem; width: 8px; height: 8px; border-radius: 50%; background-color: var(--accent); transform: translateX(-5px);">
+                        </div>
+
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">Teaching
+                                Assistant & Research Assistant<span style="color: var(--accent); font-weight: 500;"> @
+                                    National University of Singapore</span></h3>
+                            <span class="mono"
+                                style="font-size: 0.85rem; color: var(--text-muted); background-color: var(--bg-secondary); border: 1px solid var(--border); padding: 0.2rem 0.6rem; border-radius: var(--radius-sm);">2024.08
+                                - Present</span>
+                        </div>
+                        <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7;">
+                            <!-- To be filled -->
+                        </p>
+                    </div>
+
+
+
+                </div>
+            </section>
+
+            <!-- Navigation Back Button -->
+            <div style="margin-top: 5rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+                <a href="index.html" class="mono"
+                    style="font-size: 0.85rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition-fast);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Back to Home
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-text">
+                &ldquo;Chasing internity in a short life.&rdquo;
+            </div>
+            <div class="footer-tech">
+                <span>Archived in Cream & Sepia Minimalist</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+
+</html>
